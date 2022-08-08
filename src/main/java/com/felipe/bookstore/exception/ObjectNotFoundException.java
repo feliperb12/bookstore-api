@@ -1,4 +1,4 @@
-package com.felipe.bookstore.exception;
+package com.felipe.bookstore.exception; 
 
 public class ObjectNotFoundException extends RuntimeException{
 	private static final long serialVersionUID = 1L;
