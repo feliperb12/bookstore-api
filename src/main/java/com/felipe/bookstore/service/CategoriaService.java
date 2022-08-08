@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.felipe.bookstore.dtos.CategoriaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.felipe.bookstore.domain.Categoria;
@@ -41,6 +42,10 @@ public class CategoriaService {
 
 	public void delete(Integer id) {
 		findyById(id);
-		respository.deleteById(id);
+		try {
+			respository.deleteById(id);
+		}catch (DataIntegrityViolationException e){
+             throw new com.felipe.bookstore.exception.DataIntegrityViolationException("Categoria não pode ser deletada!Possui livros associados.");
+		}
 	}
 }
