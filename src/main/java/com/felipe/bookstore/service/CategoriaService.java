@@ -38,4 +38,9 @@ public class CategoriaService {
 		obj.setDescricao(objDto.getDescricao());
 		return respository.save(obj);
 	}
+
+	public void delete(Integer id) {
+		findyById(id);
+		respository.deleteById(id);
+	}
 }
