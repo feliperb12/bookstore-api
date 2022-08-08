@@ -39,7 +39,14 @@ public class CategoriaResource {
 	@PostMapping
 	public ResponseEntity<Categoria> create(@RequestBody Categoria obj){
 		obj = service.create(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).body(obj);
+	}
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<CategoriaDTO> update(@PathVariable Integer id, @RequestBody CategoriaDTO objDto){
+		Categoria newObj = service.update(id, objDto);
+		return ResponseEntity.ok().body(new CategoriaDTO(newObj));
+
 	}
 }

@@ -3,6 +3,7 @@ package com.felipe.bookstore.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.felipe.bookstore.dtos.CategoriaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,13 @@ public class CategoriaService {
 
 	public Categoria create(Categoria obj){
 		obj.setId(null);
+		return respository.save(obj);
+	}
+
+	public Categoria update(Integer id, CategoriaDTO objDto) {
+		Categoria obj = findyById(id);
+		obj.setNome(objDto.getNome());
+		obj.setDescricao(objDto.getDescricao());
 		return respository.save(obj);
 	}
 }
