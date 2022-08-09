@@ -1,5 +1,7 @@
 package com.felipe.bookstore.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotEmpty;
 
 
 @Entity
@@ -26,8 +28,12 @@ public class Categoria implements Serializable {
 	private Integer id;
 	
 	@Column
+	@NotEmpty(message = "Campo NOME é requerido.")
+	@Length(min = 3, max = 100, message = "O campo nome deve possuir entre 3 á 100 caracteres.")
 	private String nome;
-	
+
+	@NotEmpty(message = "Campo DESCRIÇÃO é requerido.")
+	@Length(min = 3, max = 200, message = "O campo DESCRIÇÃO deve possuir entre 3 á 100 caracteres.")
 	@Column
 	private String descricao;
 
