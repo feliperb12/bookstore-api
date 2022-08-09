@@ -6,7 +6,9 @@ import com.felipe.bookstore.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,5 +40,16 @@ public class LivroResource {
         Livro newObj= service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
+
+    @PostMapping
+    public ResponseEntity<Livro> create(@RequestParam(value = "categoria", defaultValue = "0") Integer id_cat,
+                                        @RequestBody Livro obj){
+        Livro newObj = service.create(id_cat, obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/livros/{id}").buildAndExpand(newObj.getId()).toUri();
+        return ResponseEntity.created(uri).body(newObj);
+
+    }
+
 
 }
