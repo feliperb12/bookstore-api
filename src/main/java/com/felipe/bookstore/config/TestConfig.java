@@ -1,4 +1,4 @@
-package com.felipe.bookstore.config;
+/*package com.felipe.bookstore.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,4 +19,4 @@ public class TestConfig {
 		this.dbService.instanciaBaseDeDados();
 	}
 
-}
+}*/
