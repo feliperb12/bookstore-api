@@ -16,6 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/categorias")
 public class CategoriaResource {
@@ -25,7 +26,6 @@ public class CategoriaResource {
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Categoria> findById(@PathVariable Integer id) {
-
 		Categoria obj = service.findyById(id);
 		return ResponseEntity.ok().body(obj);
 	}
