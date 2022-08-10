@@ -1,4 +1,4 @@
-package com.felipe.bookstore.config;
+/*package com.felipe.bookstore.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,9 +21,10 @@ public class DevConfig {
 	@Bean
 	public Boolean instanciaBaseDeDados() {
 		
-		if(strategy.equals("create")) {
+		if(strategy.equals("update")) {
 			this.dbService.instanciaBaseDeDados();
 		}
 			return false;
 	}
 }
+*/
