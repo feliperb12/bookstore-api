@@ -20,6 +20,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(value = "/categorias")
 public class CategoriaResource {
+	//
 
 	@Autowired
 	private CategoriaService service;
